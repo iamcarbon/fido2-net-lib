@@ -32,11 +32,7 @@ namespace fido2_net_lib.Test
 
             var services = new ServiceCollection();
 
-            var staticClient = new StaticMetadataRepository();
-
             var repos = new List<IMetadataRepository>();
-
-            repos.Add(staticClient);
 
             if (!string.IsNullOrEmpty(MDSAccessKey))
             {

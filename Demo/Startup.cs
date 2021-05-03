@@ -56,12 +56,14 @@ namespace Fido2Demo
                 
                 if (!string.IsNullOrWhiteSpace(Configuration["fido2:MDSAccessKey"]))
                 {
-                    config.AddFidoMetadataRepository(Configuration["fido2:MDSAccessKey"]);
+                    //config.AddFidoMetadataRepository(Configuration["fido2:MDSAccessKey"]);
                 }
-                config.AddStaticMetadataRepository();
-            });
 
-        
+                if (!string.IsNullOrWhiteSpace(Configuration["fido2:MDSCacheDirPath"]))
+                {
+                    config.AddFileSystemMetadataRepository(Configuration["fido2:MDSCacheDirPath"]);
+                }
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

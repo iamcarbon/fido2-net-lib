@@ -47,7 +47,7 @@ namespace Microsoft.Extensions.DependencyInjection
 
         public static IFido2MetadataServiceBuilder AddFileSystemMetadataRepository(this IFido2MetadataServiceBuilder builder, string directoryPath)
         {
-            builder.Services.AddTransient<IMetadataRepository, FileSystemMetadataRepository>(r =>
+            builder.Services.AddTransient<IMetadataRepository>(provider =>
             {
                 return new FileSystemMetadataRepository(directoryPath);
             });
@@ -55,12 +55,6 @@ namespace Microsoft.Extensions.DependencyInjection
             return builder;
         }
 
-        public static IFido2MetadataServiceBuilder AddStaticMetadataRepository(this IFido2MetadataServiceBuilder builder)
-        {
-            builder.Services.AddTransient<IMetadataRepository, StaticMetadataRepository>();
-
-            return builder;
-        }
         public static IFido2MetadataServiceBuilder AddConformanceMetadataRepository(
             this IFido2MetadataServiceBuilder builder,
             HttpClient client = null, 
