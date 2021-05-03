@@ -56,7 +56,7 @@ namespace Fido2Demo
                 
                 if (!string.IsNullOrWhiteSpace(Configuration["fido2:MDSAccessKey"]))
                 {
-                    //config.AddFidoMetadataRepository(Configuration["fido2:MDSAccessKey"]);
+                    config.AddFidoMetadataRepository(Configuration["fido2:MDSAccessKey"]);
                 }
 
                 if (!string.IsNullOrWhiteSpace(Configuration["fido2:MDSCacheDirPath"]))
